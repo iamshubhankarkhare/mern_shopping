@@ -17,7 +17,7 @@ export default class AppNavbar extends Component {
     render() {
         return (
             <div>
-                <Navbar color="dark" expand="sm" classname="mb-5">
+                <Navbar color="dark" expand="sm" className="mb-5">
                     <Container>
                         <NavbarBrand href="/">Shopping List</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}></NavbarToggler>
