@@ -27,6 +27,9 @@ class RegisterModal extends Component {
         if (error !== prevProps.error) {
             if (error.id === 'REGISTER_FAIL') {
                 this.setState({ msg: error.msg.msg })
+
+
+
             }
             else {
                 this.setState({ msg: null })
@@ -45,10 +48,12 @@ class RegisterModal extends Component {
 
     toggle = () => {
         //clear error 
+
         this.props.clearErrors();
         this.setState({
             modal: !this.state.modal
         })
+
     }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -64,8 +69,6 @@ class RegisterModal extends Component {
             password
         };
         this.props.register(newUser);
-
-        this.toggle();
 
     }
     render() {
