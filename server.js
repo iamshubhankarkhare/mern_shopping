@@ -1,15 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const path = require('path')
+const path = require('path');
+const config = require('config')
 
-const items = require("./routes/api/items");
+
 
 const app = express();
 
 app.use(bodyParser.json());
 //mongo connection
-const db = require("./config/keys").mongoURI;
+const db = config.get('mongoURI');
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -17,7 +18,11 @@ mongoose
     .catch((err) => console.log(err));
 
 //routes are here
-app.use("/api/items", items);
+app.use("/api/items", require("./routes/api/items"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
+
+
 //for production
 if (process.env.NODE_ENV === 'production') {
 
