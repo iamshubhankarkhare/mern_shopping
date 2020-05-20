@@ -31,7 +31,7 @@ export class AppNavbar extends Component {
             <Fragment>
                 <NavItem>
                     <span className="navbar-text mr-3">
-                        <strong>{user ? `Welcome ${user.name}` : ''}</strong>
+                        <strong>{user ? (user.name !== undefined ? (`Welcome ${user.name}`) : (`Welcome`)) : ''}</strong>
                     </span>
                 </NavItem>
                 <NavItem>
